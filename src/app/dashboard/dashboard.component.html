@@ -1,0 +1,39 @@
+<div style="padding: 30px;">
+  <h2>Employee Dashboard</h2>
+
+  <div style="margin-bottom: 20px; font-size: 18px;">
+    🔝 Highest Salary: {{ highestSalary }}
+  </div>
+
+  <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th (click)="sortBySalary()" style="cursor: pointer;">
+          Salary ⬍
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>
+          <button (click)="editEmployee(emp)">Edit</button>
+          <button (click)="deleteEmployee(emp.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit Section -->
+  <div *ngIf="selectedEmployee" style="margin-top: 30px;">
+    <h3>Edit Employee</h3>
+    <label>Name:</label>
+    <input [(ngModel)]="selectedEmployee.name" /><br /><br />
+    <label>Salary:</label>
+    <input type="number" [(ngModel)]="selectedEmployee.salary" /><br /><br />
+    <button (click)="saveEdit()">Save</button>
+  </div>
+</div>
