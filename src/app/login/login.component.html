@@ -1,10 +1,15 @@
-<div style="width: 300px; margin: 100px auto; padding: 20px; border: 1px solid #ccc;">
+<div class="login-container">
   <h2>Login</h2>
-  <p style="margin-top: 20px;">Username: admin, Password: admin</p>
-  <label>Username</label>
-  <input type="text" [(ngModel)]="username" /><br /><br />
-  <label>Password</label>
-  <input type="password" [(ngModel)]="password" /><br /><br />
+  <p class="hint">Hint - Username: <strong>admin</strong> | Password: <strong>admin</strong></p>
+
+  <div *ngIf="showError" class="error">Invalid credentials. Try admin/admin</div>
+
+  <label>Username:</label>
+  <input type="text" [(ngModel)]="username" />
+
+  <label>Password:</label>
+  <input type="password" [(ngModel)]="password" />
+
   <button (click)="login()">Login</button>
 
 </div>

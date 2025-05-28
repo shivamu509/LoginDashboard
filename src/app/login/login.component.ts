@@ -8,8 +8,9 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username = '';
-  password = '';
+  username: string = '';
+  password: string = '';
+  showError: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -17,7 +18,7 @@ export class LoginComponent {
     if (this.username === 'admin' && this.password === 'admin') {
       this.router.navigate(['/dashboard']);
     } else {
-      alert('Invalid credentials');
+      this.showError = true;
     }
   }
 }

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 interface Employee {
   id: number;
@@ -20,14 +22,10 @@ export class DashboardComponent {
   ];
 
   selectedEmployee: Employee | null = null;
-  sortAsc: boolean = true;
+  sortAscending: boolean = true;
 
-   get highestSalary(): number {
+  get highestSalary(): number {
     return Math.max(...this.employees.map(e => e.salary));
-  }
-
-  deleteEmployee(id: number) {
-    this.employees = this.employees.filter(e => e.id !== id);
   }
 
   editEmployee(emp: Employee) {
@@ -42,9 +40,15 @@ export class DashboardComponent {
     }
   }
 
+  deleteEmployee(id: number) {
+    this.employees = this.employees.filter(e => e.id !== id);
+  }
+
   sortBySalary() {
-    this.employees.sort((a, b) => this.sortAsc ? a.salary - b.salary : b.salary - a.salary);
-    this.sortAsc = !this.sortAsc;
+    this.employees.sort((a, b) =>
+      this.sortAscending ? a.salary - b.salary : b.salary - a.salary
+    );
+    this.sortAscending = !this.sortAscending;
   }
 
 }
