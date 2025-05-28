@@ -16,7 +16,7 @@ export class LoginComponent {
 
   login() {
     if (this.username === 'admin' && this.password === 'admin') {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard'], { queryParams: { user: this.username } });
     } else {
       this.showError = true;
     }

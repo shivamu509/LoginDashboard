@@ -1,14 +1,14 @@
-<div class="login-container">
+<div class="login-container p-card">
   <h2>Login</h2>
   <p class="hint">Hint - Username: <strong>admin</strong> | Password: <strong>admin</strong></p>
 
   <div *ngIf="showError" class="error">Invalid credentials. Try admin/admin</div>
-
+  
   <label>Username:</label>
-  <input type="text" [(ngModel)]="username" />
+  <input pInputText  type="text" [(ngModel)]="username" />
 
   <label>Password:</label>
-  <input type="password" [(ngModel)]="password" />
+  <input pInputText  type="password" [(ngModel)]="password" />
 
   <button (click)="login()">Login</button>
 
