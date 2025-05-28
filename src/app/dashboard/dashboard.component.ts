@@ -1,6 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 
 interface Employee {
   id: number;
@@ -16,9 +14,9 @@ interface Employee {
 })
 export class DashboardComponent {
   employees: Employee[] = [
-    { id: 1, name: 'Alice', salary: 60000 },
-    { id: 2, name: 'Bob', salary: 75000 },
-    { id: 3, name: 'Charlie', salary: 90000 }
+    { id: 1, name: 'Ram', salary: 60000 },
+    { id: 2, name: 'Shyam', salary: 75000 },
+    { id: 3, name: 'Sundar', salary: 90000 }
   ];
 
   selectedEmployee: Employee | null = null;
